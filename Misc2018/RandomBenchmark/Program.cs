@@ -80,7 +80,7 @@ namespace RandomBenchmark
         [Benchmark]
         public int NewXorShift()
         {
-            return new XorShift(Environment.TickCount, (int) DateTime.Now.Ticks, Environment.TickCount.GetHashCode(),
+            return new XorShift(Environment.TickCount, (int)DateTime.Now.Ticks, Environment.TickCount.GetHashCode(),
                 DateTime.Now.Ticks.GetHashCode()).Next();
         }
     }
