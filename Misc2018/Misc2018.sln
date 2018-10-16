@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqCsv", "LinqCsv\LinqCsv.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomBenchmark", "RandomBenchmark\RandomBenchmark.csproj", "{22CD6917-19B3-40FA-A2F2-81CBB2CBA7C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpanBenchmark", "SpanBenchmark\SpanBenchmark.csproj", "{D917F5CB-63E4-425C-BBBF-DDA507FD1184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayIterationBenchMark", "ArrayIterationBenchMark\ArrayIterationBenchMark.csproj", "{FD2550BE-AF84-428C-AE6A-F7A2D3C07A94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{22CD6917-19B3-40FA-A2F2-81CBB2CBA7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22CD6917-19B3-40FA-A2F2-81CBB2CBA7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22CD6917-19B3-40FA-A2F2-81CBB2CBA7C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D917F5CB-63E4-425C-BBBF-DDA507FD1184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D917F5CB-63E4-425C-BBBF-DDA507FD1184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D917F5CB-63E4-425C-BBBF-DDA507FD1184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D917F5CB-63E4-425C-BBBF-DDA507FD1184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD2550BE-AF84-428C-AE6A-F7A2D3C07A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD2550BE-AF84-428C-AE6A-F7A2D3C07A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD2550BE-AF84-428C-AE6A-F7A2D3C07A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD2550BE-AF84-428C-AE6A-F7A2D3C07A94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
