@@ -1,4 +1,12 @@
 ﻿using System;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Columns;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Diagnosers;
+using BenchmarkDotNet.Exporters;
+using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Loggers;
+using BenchmarkDotNet.Running;
 
 namespace SpanBenchmark
 {
@@ -6,14 +14,28 @@ namespace SpanBenchmark
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BenchmarkRunner.Run<CsvLineReaderBenchmark>(new BenchmarkConfig());
+        }
+    }
+    
+    public class BenchmarkConfig : ManualConfig
+    {
+        public BenchmarkConfig()
+        {
+            Add(Job.Default);
+            Add(DefaultColumnProviders.Instance);
+            Add(MarkdownExporter.GitHub);
+            Add(new ConsoleLogger());
+            Add(new HtmlExporter());
+            Add(MemoryDiagnoser.Default);
         }
     }
 
-    public class CsvLineReader
+    public class CsvLineReaderBenchmark
     {
         private static readonly string s_csvLine = $"1,{Guid.NewGuid()},1.25,true,hogefuga";
 
+        [Benchmark]
         public Record StringSplit()
         {
             string[] split = s_csvLine.Split(',', 5);
@@ -28,6 +50,7 @@ namespace SpanBenchmark
             };
         }
 
+        [Benchmark]
         public Record Span()
         {
             var reader = new SpanCsvReader(s_csvLine);
@@ -37,8 +60,10 @@ namespace SpanBenchmark
                 SessionId = Guid.Parse(reader.ReadNext()),
                 Rate = double.Parse(reader.ReadNext()),
                 Enabled = bool.Parse(reader.ReadNext()),
-                Comment = reader.ReadNext().ToString()
+                Comment = new string(reader.ReadNext())
             };
+
+            return record;
         }
 
         private ref struct SpanCsvReader
